@@ -40,7 +40,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.google.firebase:firebase-bom:32.7.3")
-    implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-database:19.2.0")
+
     //dependancy for products
 //    implementation("com.google.firebase:firebase-analytics")
 }
