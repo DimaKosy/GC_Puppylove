@@ -8,11 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class MainActivity extends AppCompatActivity {
 
     Handler handler;
@@ -31,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         img.animate().alpha(4000).setDuration(0);
         handler = new Handler();
 
-        InitFirebase.initialise(getApplicationContext());
+        FirebaseController.initialise(getApplicationContext());
 
 
 
