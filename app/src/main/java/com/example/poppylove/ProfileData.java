@@ -5,6 +5,10 @@ public class ProfileData {
     String Password;
     String Bio;
 
+
+    public ProfileData() {
+        // 无需做任何事情
+    }
     public ProfileData(String Name, String Password){
         this.Name = Name;
         this.Password = Password;

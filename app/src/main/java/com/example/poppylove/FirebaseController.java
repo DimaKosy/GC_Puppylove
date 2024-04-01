@@ -1,7 +1,9 @@
 package com.example.poppylove;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 
@@ -12,7 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,9 +39,38 @@ public class FirebaseController {
         }
     }
 
-    int Login(){
-        return 0;
+
+    public static void login(String phone, String password) {
+        myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+
+                    ProfileData profileData = dataSnapshot.child("private").getValue(ProfileData.class);
+
+                    if (profileData != null && profileData.getPassword().equals(password)) {
+
+                        Log.d("Login", "You have Success Login ");
+
+                    } else {
+
+                        Log.d("Login", "Failure: Incorrect password");
+                    }
+                } else {
+                    // Phone number not found
+                    Log.d("Login", "Failure: Phone number not registered");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handl possible errors
+                Log.d("Firebase", "Error: " + databaseError.getMessage());
+            }
+        });
+
     }
+
 
     static int Register(String phone, String password){
 

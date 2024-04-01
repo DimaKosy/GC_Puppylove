@@ -58,9 +58,14 @@ public class LoginActivity extends AppCompatActivity {
                     mPass.setError("Personal password its required");
                     return;
                 }
+                // 假设这是在 MainActivity 的某个方法中，比如点击登录按钮的响应方法
+                FirebaseController.login(phone,password);
+
+
 
             }
         });
+
 
         mSignup.setOnClickListener(new View.OnClickListener() {
             @Override
