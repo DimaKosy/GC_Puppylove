@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
 
         myRef.setValue("Hello, login");
 
+        FirebaseController.Login();
+
         login();
     }
 

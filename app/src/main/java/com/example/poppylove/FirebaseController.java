@@ -38,7 +38,28 @@ public class FirebaseController {
         }
     }
 
-    int Login(){
+    static int Login(){
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // File exists, you can retrieve its data
+                    String name = dataSnapshot.child("name").getValue(String.class);
+                    String password = dataSnapshot.child("password").getValue(String.class);
+                    // Do something with the retrieved data
+                    System.out.println("File Name: " + name + ", Password: " + password);
+                } else {
+                    // File doesn't exist
+                    System.out.println("File does not exist.");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
         return 0;
     }
 
@@ -52,9 +73,6 @@ public class FirebaseController {
                 //Error
                 System.out.println("Error writing file: " + e.getMessage())
         );
-
-
-
         return 0;
     }
 }

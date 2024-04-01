@@ -28,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseController.initialise(getApplicationContext());
 
-
-
-
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
