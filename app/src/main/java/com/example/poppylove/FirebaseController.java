@@ -24,6 +24,7 @@ public class FirebaseController {
     private static boolean FB_Init = false;
     private static FirebaseDatabase database;
     private static DatabaseReference myRef;
+    private static boolean LoggedIn = false;
 
     public static void initialise(Context context){
         if(!FB_Init){
@@ -40,7 +41,10 @@ public class FirebaseController {
     }
 
 
-    public static void login(String phone, String password) {
+    public static boolean login(String phone, String password) {
+
+
+
         myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -51,6 +55,7 @@ public class FirebaseController {
                     if (profileData != null && profileData.getPassword().equals(password)) {
 
                         Log.d("Login", "You have Success Login ");
+                        LoggedIn = true;
 
                     } else {
 
@@ -60,6 +65,7 @@ public class FirebaseController {
                     // Phone number not found
                     Log.d("Login", "Failure: Phone number not registered");
                 }
+
             }
 
             @Override
@@ -68,7 +74,7 @@ public class FirebaseController {
                 Log.d("Firebase", "Error: " + databaseError.getMessage());
             }
         });
-
+        return LoggedIn;
     }
 
 

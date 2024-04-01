@@ -59,9 +59,9 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 // 假设这是在 MainActivity 的某个方法中，比如点击登录按钮的响应方法
-                FirebaseController.login(phone,password);
-
-
+                if(FirebaseController.login(phone,password)){
+                    startActivity(new Intent(getApplicationContext(),Swipe.class));
+                }
 
             }
         });
