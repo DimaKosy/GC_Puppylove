@@ -1,6 +1,8 @@
 package com.example.poppylove;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -12,10 +14,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class FirebaseController {
@@ -23,6 +25,7 @@ public class FirebaseController {
     private static boolean FB_Init = false;
     private static FirebaseDatabase database;
     private static DatabaseReference myRef;
+    private static boolean LoggedIn = false;
 
     public static void initialise(Context context){
         if(!FB_Init){
@@ -38,41 +41,91 @@ public class FirebaseController {
         }
     }
 
-    static int Login(){
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+    public static boolean login(String phone, String password) {
+
+        myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    // File exists, you can retrieve its data
-                    String name = dataSnapshot.child("name").getValue(String.class);
-                    String password = dataSnapshot.child("password").getValue(String.class);
-                    // Do something with the retrieved data
-                    System.out.println("File Name: " + name + ", Password: " + password);
+
+                    ProfileData profileData = dataSnapshot.child("private").getValue(ProfileData.class);
+
+                    if (profileData != null && profileData.getPassword().equals(password)) {
+
+                        Log.d("Login", "You have Success Login ");
+                        LoggedIn = true;
+
+                    } else {
+
+                        Log.d("Login", "Failure: Incorrect password");
+                    }
                 } else {
-                    // File doesn't exist
-                    System.out.println("File does not exist.");
+                    // Phone number not found
+                    Log.d("Login", "Failure: Phone number not registered");
                 }
+
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Handle errors
-                System.out.println("Error: " + databaseError.getMessage());
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handl possible errors
+                Log.d("Firebase", "Error: " + databaseError.getMessage());
             }
         });
-        return 0;
+        return LoggedIn;
     }
 
-    static int Register(String phone, String password){
 
+    public static boolean Register(Context context,String phone, String password){
+        AtomicBoolean registered = new AtomicBoolean(false);
         Map<String, ProfileData> profileDataMap = new HashMap<>();
         profileDataMap.put("private", new ProfileData(phone.toString(), password.toString()));
 
         DatabaseReference profileRef = myRef.child(phone);
-        profileRef.setValue(profileDataMap).addOnFailureListener(e ->
+
+        profileRef.setValue(profileDataMap).addOnSuccessListener(e -> {
                 //Error
-                System.out.println("Error writing file: " + e.getMessage())
+                    Intent intent = new Intent(context, UpdateUserActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("PhoneID",phone);
+
+                    intent.putExtras(bundle);
+
+                    context.startActivity(intent);
+//                registered.set(false);
+//                System.out.println("Error writing file: " + e.getMessage());
+            }
         );
-        return 0;
+
+
+
+        return true;
     }
+
+//    public static void CreateProfile(String PhoneID, String Name){
+//        Map<String, ProfileData> profileDataMap = new HashMap<>();
+//
+//        profileDataMap.put("public", new ProfileData(Name.toString()));
+//
+//        DatabaseReference profileRef = myRef.child(PhoneID);
+//        profileRef.setValue(profileDataMap).addOnFailureListener(e ->
+//                //Error
+//                System.out.println("Error writing file: " + e.getMessage())
+//        );
+//    }
+
+    public static void CreateProfile(String PhoneID, String newName) {
+        Map<String, Object> updateData = new HashMap<>();
+        updateData.put("/public/name", newName);
+
+        DatabaseReference profileRef = myRef.child(PhoneID);
+        profileRef.updateChildren(updateData)
+                .addOnFailureListener(e ->
+                        // Error
+                        System.out.println("Error updating profile: " + e.getMessage())
+                );
+    }
+
 }

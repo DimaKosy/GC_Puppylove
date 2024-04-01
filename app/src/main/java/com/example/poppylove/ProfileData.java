@@ -1,22 +1,29 @@
 package com.example.poppylove;
 
 public class ProfileData {
-    String Name;
+    String Phone;
     String Password;
-    String Bio;
+    String Name;
 
-    public ProfileData(String Name, String Password){
-        this.Name = Name;
+
+    public ProfileData() {
+    }
+    public ProfileData(String Phone, String Password){
+        this.Phone = Phone;
         this.Password = Password;
 
     }
 
-    public String getName() {
-        return Name;
+    public ProfileData(String Name) {
+        this.Name = Name;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
     public String getPassword() {
@@ -27,7 +34,11 @@ public class ProfileData {
         Password = password;
     }
 
-    public void setBio(String bio) {
-        Bio = bio;
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String bio) {
+        Name = Name;
     }
 }
