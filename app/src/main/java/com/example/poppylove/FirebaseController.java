@@ -2,8 +2,8 @@ package com.example.poppylove;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 
@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class FirebaseController {
@@ -42,8 +43,6 @@ public class FirebaseController {
 
 
     public static boolean login(String phone, String password) {
-
-
 
         myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -78,19 +77,55 @@ public class FirebaseController {
     }
 
 
-    static int Register(String phone, String password){
-
+    public static boolean Register(Context context,String phone, String password){
+        AtomicBoolean registered = new AtomicBoolean(false);
         Map<String, ProfileData> profileDataMap = new HashMap<>();
         profileDataMap.put("private", new ProfileData(phone.toString(), password.toString()));
 
         DatabaseReference profileRef = myRef.child(phone);
-        profileRef.setValue(profileDataMap).addOnFailureListener(e ->
+
+        profileRef.setValue(profileDataMap).addOnSuccessListener(e -> {
                 //Error
-                System.out.println("Error writing file: " + e.getMessage())
+                    Intent intent = new Intent(context, UpdateUserActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("PhoneID",phone);
+
+                    intent.putExtras(bundle);
+
+                    context.startActivity(intent);
+//                registered.set(false);
+//                System.out.println("Error writing file: " + e.getMessage());
+            }
         );
 
 
 
-        return 0;
+        return true;
     }
+
+//    public static void CreateProfile(String PhoneID, String Name){
+//        Map<String, ProfileData> profileDataMap = new HashMap<>();
+//
+//        profileDataMap.put("public", new ProfileData(Name.toString()));
+//
+//        DatabaseReference profileRef = myRef.child(PhoneID);
+//        profileRef.setValue(profileDataMap).addOnFailureListener(e ->
+//                //Error
+//                System.out.println("Error writing file: " + e.getMessage())
+//        );
+//    }
+
+    public static void CreateProfile(String PhoneID, String newName) {
+        Map<String, Object> updateData = new HashMap<>();
+        updateData.put("/public/name", newName);
+
+        DatabaseReference profileRef = myRef.child(PhoneID);
+        profileRef.updateChildren(updateData)
+                .addOnFailureListener(e ->
+                        // Error
+                        System.out.println("Error updating profile: " + e.getMessage())
+                );
+    }
+
 }
