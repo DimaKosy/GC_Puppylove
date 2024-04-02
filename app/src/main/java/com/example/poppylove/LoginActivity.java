@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                     break;
                     case 1:
-                        intent = new Intent(getApplicationContext(),Swipe.class);
+                        intent = new Intent(getApplicationContext(), SwipeActivity.class);
                         intent.putExtras(bundle);
                         startActivity(intent);
                     break;

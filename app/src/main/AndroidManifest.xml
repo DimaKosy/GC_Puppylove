@@ -13,7 +13,7 @@
         android:theme="@style/Theme.PoppyLove"
         tools:targetApi="31">
         <activity
-            android:name=".Swipe"
+            android:name=".SwipeActivity"
             android:exported="false" />
         <activity
             android:name=".UpdateUserActivity"
