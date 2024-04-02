@@ -50,17 +50,47 @@ public class LoginActivity extends AppCompatActivity {
                 String phone = mPhone.getText().toString().trim();
                 String password = mPass.getText().toString().trim();
 
-                if(TextUtils.isEmpty(phone)){
+                if (TextUtils.isEmpty(phone)) {
                     mPhone.setError("Phone number its required");
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     mPass.setError("Personal password its required");
                     return;
                 }
-                // 假设这是在 MainActivity 的某个方法中，比如点击登录按钮的响应方法
-                if(FirebaseController.login(phone,password)){
-//                    startActivity(new Intent(getApplicationContext(), /*Add swipe class*/.class));
+
+                //Logins in if details match
+                /*LoggedIn values
+                 * 2 success but profile incomplete
+                 * 1 success
+                 * -1 failure incorrect password
+                 * -2 failure not registered
+                 */
+
+                Intent intent;
+                Bundle bundle = new Bundle();
+                bundle.putString("PhoneID",phone);
+
+                switch (FirebaseController.login(phone, password)){
+                    case 2:
+                        intent = new Intent(getApplicationContext(),UpdateUserActivity.class);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    break;
+                    case 1:
+                        intent = new Intent(getApplicationContext(),Swipe.class);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    break;
+                    case -1:
+                        //show error
+                    break;
+                    case -2:
+                        //show error
+                    break;
+                    default:
+                    break;
+
                 }
 
             }

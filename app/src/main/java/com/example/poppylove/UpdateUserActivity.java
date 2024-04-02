@@ -12,6 +12,8 @@ public class UpdateUserActivity extends AppCompatActivity {
 
     EditText nameInput;
     String Name;
+    String Bio;
+    String PictureData;
     Button submitButton;
 
     @Override
@@ -31,8 +33,10 @@ public class UpdateUserActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 Name = nameInput.getText().toString();
-                 FirebaseController.CreateProfile(phoneID, Name);
+                Name = nameInput.getText().toString();
+                Bio = "Bio";
+                PictureData = "PICTUREDATA";
+                FirebaseController.CreateProfile(phoneID, Name, Bio, PictureData);
 
             }
         });

@@ -25,7 +25,7 @@ public class FirebaseController {
     private static boolean FB_Init = false;
     private static FirebaseDatabase database;
     private static DatabaseReference myRef;
-    private static boolean LoggedIn = false;
+    private static int LoggedIn = 0;
 
     public static void initialise(Context context){
         if(!FB_Init){
@@ -42,7 +42,13 @@ public class FirebaseController {
     }
 
 
-    public static boolean login(String phone, String password) {
+    public static int login(String phone, String password) {
+        /*LoggedIn values
+        * 2 success but profile incomplete
+        * 1 success
+        * -1 failure incorrect password
+        * -2 failure not registered
+        */
 
         myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -53,16 +59,25 @@ public class FirebaseController {
 
                     if (profileData != null && profileData.getPassword().equals(password)) {
 
-                        Log.d("Login", "You have Success Login ");
-                        LoggedIn = true;
+                        Log.d("LOGIN_CHECK", "You have Success Login ");
+                        LoggedIn = 1;
+
+
+                        profileData = dataSnapshot.child("public").getValue(ProfileData.class);
+                        if(profileData == null){
+
+                            LoggedIn = 2;
+                        }
 
                     } else {
 
                         Log.d("Login", "Failure: Incorrect password");
+                        LoggedIn = -1;
                     }
                 } else {
                     // Phone number not found
                     Log.d("Login", "Failure: Phone number not registered");
+                    LoggedIn = -2;
                 }
 
             }
@@ -116,9 +131,11 @@ public class FirebaseController {
 //        );
 //    }
 
-    public static void CreateProfile(String PhoneID, String newName) {
+    public static void CreateProfile(String PhoneID, String newName, String Bio, String PictureData) {
         Map<String, Object> updateData = new HashMap<>();
         updateData.put("/public/name", newName);
+        updateData.put("/public/bio", Bio);
+        updateData.put("/public/picture", PictureData);
 
         DatabaseReference profileRef = myRef.child(PhoneID);
         profileRef.updateChildren(updateData)
@@ -127,5 +144,17 @@ public class FirebaseController {
                         System.out.println("Error updating profile: " + e.getMessage())
                 );
     }
+
+//    public static void UpdateDogProfile(String PhoneID, int index){
+//        Map<String, Object> updateData = new HashMap<>();
+//        updateData.put("/public/name", newName);
+//
+//        DatabaseReference profileRef = myRef.child(PhoneID);
+//        profileRef.updateChildren(updateData)
+//                .addOnFailureListener(e ->
+//                        // Error
+//                        System.out.println("Error updating profile: " + e.getMessage())
+//                );
+//    }
 
 }

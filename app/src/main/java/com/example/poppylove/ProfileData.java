@@ -1,9 +1,14 @@
 package com.example.poppylove;
 
 public class ProfileData {
+    //Private
     String Phone;
     String Password;
+
+    //Public
     String Name;
+    String Bio;
+    String Photo;
 
 
     public ProfileData() {
@@ -14,7 +19,7 @@ public class ProfileData {
 
     }
 
-    public ProfileData(String Name) {
+    public ProfileData(String Name, String Bio, String Photo) {
         this.Name = Name;
     }
 
