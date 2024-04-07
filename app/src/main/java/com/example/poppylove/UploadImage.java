@@ -34,18 +34,22 @@ import java.util.Locale;
 
 public class UploadImage extends AppCompatActivity {
 
+    //Easier way to call the views than using findById()
     ActivityUploadImageBinding binding;
+    //Needed for putting data into the firebase storage
     StorageReference storageReference;
-
+    //Used for launching the image selector
     ActivityResultLauncher<Intent> resultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //set up binding
         binding = ActivityUploadImageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         registerResult();
 
+        //launches img selector when the select image button is pressed
         binding.selectImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +57,8 @@ public class UploadImage extends AppCompatActivity {
             }
         });
 
+        //pulls an image down from the firebase storage stores
+        //it as a temporary file using the files location in storage
         binding.retriveImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,11 +85,15 @@ public class UploadImage extends AppCompatActivity {
         });
     }
 
+    //used to launch the pick image selector
     private void selectImg() {
         Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
         resultLauncher.launch(intent);
     }
 
+    //pass an image uri it will be given an automatic heading using the current
+    //date and time and attempt to upload the selected image
+    //gives a toast when successful
     private void uploadImage(Uri imageUri) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CHINA);
         Date now = new Date();
@@ -106,6 +116,8 @@ public class UploadImage extends AppCompatActivity {
 
     }
 
+    //Once an image is selected this function calls the uploadImage to send
+    //it to the firebase storage
     private void registerResult() {
         resultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
