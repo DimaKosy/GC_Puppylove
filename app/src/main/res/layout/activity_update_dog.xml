@@ -5,38 +5,76 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateUserActivity">
+    tools:context=".UpdateDogActivity">
 
-    <EditText
-        android:id="@+id/nameInput2"
-        android:layout_width="299dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="14dp"
-        android:background="@drawable/custom_input"
-        android:ems="10"
-        android:inputType="text"
+
+    <ImageView
+        android:id="@+id/imageViewDog"
+        android:layout_width="93dp"
+        android:layout_height="69dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
+        app:layout_constraintVertical_bias="0.045"
+        app:srcCompat="@drawable/puppylover" />
 
-    <EditText
-        android:id="@+id/nameInput3"
-        android:layout_width="299dp"
-        android:layout_height="132dp"
-        android:layout_marginBottom="14dp"
+    <TextView
+        android:id="@+id/DogProfileDetailID"
+        android:layout_width="124dp"
+        android:layout_height="25dp"
+        android:text="Dog Profile"
+        android:textAlignment="viewStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.168" />
+
+    <ImageView
+        android:id="@+id/DogprofileID"
+        android:layout_width="153dp"
+        android:layout_height="129dp"
         android:background="@drawable/custom_input"
-        android:ems="10"
-        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.837" />
+        app:layout_constraintVertical_bias="0.269"
+        app:srcCompat="@drawable/dog_head_profile_svgrepo_com" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/DogFloatButtonID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/pink"
+        android:clickable="true"
+        android:contentDescription="TODO"
+        android:focusable="true"
+        android:scrollbarSize="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/DogprofileID"
+        app:layout_constraintEnd_toEndOf="@+id/DogprofileID"
+        app:srcCompat="@drawable/baseline_photo_camera_24" />
+
+    <TextView
+        android:id="@+id/DogName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.459" />
 
     <EditText
-        android:id="@+id/NameInput"
+        android:id="@+id/DogNameInput"
         android:layout_width="299dp"
         android:layout_height="43dp"
         android:layout_marginBottom="14dp"
@@ -49,8 +87,61 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.513" />
 
+    <TextView
+        android:id="@+id/DogBreed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Breed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.566" />
+
+
+    <EditText
+        android:id="@+id/BreedID"
+        android:layout_width="299dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.626" />
+
+    <TextView
+        android:id="@+id/DogBio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Bio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.662" />
+
+    <EditText
+        android:id="@+id/DogBIOinput"
+        android:layout_width="299dp"
+        android:layout_height="132dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837" />
+
     <Button
-        android:id="@+id/SubmitButton"
+        android:id="@+id/SubmitButtonDog"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -64,93 +155,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.942" />
 
-    <TextView
-        android:id="@+id/ProfileDetailID"
-        android:layout_width="124dp"
-        android:layout_height="25dp"
-        android:text="Profile Detail "
-        android:textAlignment="viewStart"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
 
-    <ImageView
-        android:id="@+id/profileID"
-        android:layout_width="153dp"
-        android:layout_height="129dp"
-        android:background="@drawable/custom_input"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.269"
-        app:srcCompat="@drawable/baseline_person_24" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/pink"
-        android:clickable="true"
-        android:contentDescription="TODO"
-        android:focusable="true"
-        android:scrollbarSize="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/profileID"
-        app:layout_constraintEnd_toEndOf="@+id/profileID"
-        app:srcCompat="@drawable/baseline_photo_camera_24" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="93dp"
-        android:layout_height="69dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045"
-        app:srcCompat="@drawable/puppylover" />
-
-    <TextView
-        android:id="@+id/ProfileFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
-
-    <TextView
-        android:id="@+id/profileLast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
-
-    <TextView
-        android:id="@+id/Bio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Bio"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
