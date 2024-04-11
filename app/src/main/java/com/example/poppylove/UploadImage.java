@@ -99,7 +99,7 @@ public class UploadImage extends AppCompatActivity {
         Date now = new Date();
         String fileName = formatter.format(now);
 
-        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
+        storageReference = FirebaseStorage.getInstance().getReference("image/"+fileName);
 
         storageReference.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

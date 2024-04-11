@@ -13,14 +13,13 @@
         android:theme="@style/Theme.PoppyLove"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
             android:name=".UploadImage"
-=======
+            android:exported="false"/>
+        <activity
             android:name=".UpdateDogActivity"
             android:exported="false" />
         <activity
             android:name=".SwipeActivity"
->>>>>>> Junhan
             android:exported="false" />
         <activity
             android:name=".UpdateUserActivity"

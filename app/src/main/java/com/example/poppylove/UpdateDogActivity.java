@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -15,9 +16,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class UpdateDogActivity extends AppCompatActivity {
 
+    EditText nameInput;
+    EditText bioInput;
+    String Name;
+    String Bio;
 
     ImageView imageView;
+    Uri uri;
+    String phoneID;
 
+    ImageController imageController;
     FloatingActionButton button;
 
     Button DogsubmitButton;
@@ -27,6 +35,14 @@ public class UpdateDogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_dog);
+
+        Bundle bundle = getIntent().getExtras();
+        this.phoneID = bundle.getString("PhoneID");
+
+        imageController = new ImageController(this);
+
+        nameInput = findViewById(R.id.DogNameInput);
+        bioInput = findViewById(R.id.DogBIOinput);
 
         imageView = findViewById(R.id.DogprofileID);
         button = findViewById(R.id.DogFloatButtonID);
@@ -46,16 +62,33 @@ public class UpdateDogActivity extends AppCompatActivity {
         DogsubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Name = nameInput.getText().toString();
+                Bio = bioInput.getText().toString();
+
+                if(Name.isEmpty()){
+                    return;
+                }
+
+                if(Bio.isEmpty()){
+                    return;
+                }
+
+                if(uri.equals(null)){
+                    return;
+                }
+
+                FirebaseController.CreateDogProfile(phoneID,1,Name,Bio);
+                imageController.uploadDogImage(phoneID,1,uri);
                 Intent intent = new Intent(UpdateDogActivity.this,SwipeActivity.class);
                 startActivity(intent);
-
             }
         });
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Uri uri = data.getData();
+        uri = data.getData();
         imageView.setImageURI(uri);
     }
 }

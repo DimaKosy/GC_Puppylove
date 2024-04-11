@@ -131,11 +131,23 @@ public class FirebaseController {
 //        );
 //    }
 
-    public static void CreateProfile(String PhoneID, String newName, String Bio, String PictureData) {
+    public static void CreateDogProfile(String PhoneID,int index, String newName, String Bio) {
+        Map<String, Object> updateData = new HashMap<>();
+        updateData.put("/Dog_"+index+"/name", newName);
+        updateData.put("/Dog_"+index+"/bio", Bio);
+
+        DatabaseReference profileRef = myRef.child(PhoneID);
+        profileRef.updateChildren(updateData)
+                .addOnFailureListener(e ->
+                        // Error
+                        System.out.println("Error updating profile: " + e.getMessage())
+                );
+    }
+
+    public static void CreateProfile(String PhoneID, String newName, String Bio) {
         Map<String, Object> updateData = new HashMap<>();
         updateData.put("/public/name", newName);
         updateData.put("/public/bio", Bio);
-        updateData.put("/public/picture", PictureData);
 
         DatabaseReference profileRef = myRef.child(PhoneID);
         profileRef.updateChildren(updateData)

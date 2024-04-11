@@ -18,12 +18,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class UpdateUserActivity extends AppCompatActivity {
 
     EditText nameInput;
+    EditText bioInput;
     String Name;
     String Bio;
-    String PictureData;
     Button submitButton;
 
+    ImageController imageController;
     ImageView imageView;
+    Uri uri;
 
     FloatingActionButton button;
 
@@ -37,6 +39,7 @@ public class UpdateUserActivity extends AppCompatActivity {
 
         button = findViewById(R.id.floatingActionButton);
         imageView = findViewById(R.id.profileID);
+        imageController = new ImageController(this);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,17 +59,37 @@ public class UpdateUserActivity extends AppCompatActivity {
 
 
         nameInput = findViewById(R.id.NameInput);
+        bioInput = findViewById(R.id.bioInput);
         submitButton = findViewById(R.id.SubmitButton);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UpdateUserActivity.this,UpdateDogActivity.class);
-                startActivity(intent);
+
                 Name = nameInput.getText().toString();
-                Bio = "Bio";
-                PictureData = "PICTUREDATA";
-                FirebaseController.CreateProfile(phoneID, Name, Bio, PictureData);
+                Bio = bioInput.getText().toString();
+
+                if(Name.isEmpty()){
+                    return;
+                }
+
+                if(Bio.isEmpty()){
+                    return;
+                }
+
+                if(uri.equals(null)){
+                    return;
+                }
+                FirebaseController.CreateProfile(phoneID, Name, Bio);
+                imageController.uploadProfileImage(phoneID,uri);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("PhoneID",phoneID);
+
+                Intent intent = new Intent(UpdateUserActivity.this,UpdateDogActivity.class);
+                intent.putExtras(bundle);
+
+                startActivity(intent);
 
             }
         });
@@ -75,7 +98,7 @@ public class UpdateUserActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Uri uri = data.getData();
+        uri = data.getData();
         imageView.setImageURI(uri);
     }
 }
