@@ -100,19 +100,31 @@
         app:layout_constraintVertical_bias="0.566" />
 
 
-    <EditText
-        android:id="@+id/BreedID"
+    <TextView
+        android:id="@+id/DogBreed1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Breed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.566" />
+
+    <Spinner
+
+        android:id="@+id/SpinnerID"
         android:layout_width="299dp"
+        android:background="@drawable/custom_input"
         android:layout_height="43dp"
         android:layout_marginBottom="14dp"
-        android:background="@drawable/custom_input"
-        android:ems="10"
-        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.626" />
+
 
     <TextView
         android:id="@+id/DogBio"

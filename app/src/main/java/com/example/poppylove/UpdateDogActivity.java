@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,6 +25,8 @@ public class UpdateDogActivity extends AppCompatActivity {
 
     Button DogsubmitButton;
 
+    Spinner spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,13 @@ public class UpdateDogActivity extends AppCompatActivity {
         imageView = findViewById(R.id.DogprofileID);
         button = findViewById(R.id.DogFloatButtonID);
         DogsubmitButton = findViewById(R.id.SubmitButtonDog);
+        spinner = findViewById(R.id.SpinnerID);  // Ensure ID matches your Spinner ID in XML.
+
+        String[] Dogs = {"1", "2", "3"};
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Dogs);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
