@@ -14,7 +14,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -26,6 +28,7 @@ public class FirebaseController {
     private static FirebaseDatabase database;
     private static DatabaseReference myRef;
     private static int LoggedIn = 0;
+    static ProfileData profileData;
 
     public static void initialise(Context context){
         if(!FB_Init){
@@ -91,6 +94,49 @@ public class FirebaseController {
         return LoggedIn;
     }
 
+    public static ProfileData pullUser(Context context, String phone){
+
+
+
+        myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    profileData = dataSnapshot.child("public").getValue(ProfileData.class);
+                }
+                else{
+                    profileData = null;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                profileData = null;
+            }
+        });
+
+        ImageController imageController = new ImageController(context);
+        profileData.setPhoto(imageController.downloadUserImage(phone));
+        return profileData;
+    }
+
+    public static void pullUserList(){
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    Log.d("DATASNAP", ds.getKey());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     public static boolean Register(Context context,String phone, String password){
         AtomicBoolean registered = new AtomicBoolean(false);

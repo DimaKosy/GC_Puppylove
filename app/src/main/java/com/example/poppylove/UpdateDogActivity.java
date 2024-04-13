@@ -86,7 +86,7 @@ public class UpdateDogActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(uri.equals(null)){
+                if(uri == null){
                     return;
                 }
 

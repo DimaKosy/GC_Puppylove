@@ -1,5 +1,7 @@
 package com.example.poppylove;
 
+import android.graphics.Bitmap;
+
 public class ProfileData {
     //Private
     String Phone;
@@ -8,7 +10,7 @@ public class ProfileData {
     //Public
     String Name;
     String Bio;
-    String Photo;
+    Bitmap Photo;
 
 
     public ProfileData() {
@@ -19,8 +21,10 @@ public class ProfileData {
 
     }
 
-    public ProfileData(String Name, String Bio, String Photo) {
+    public ProfileData(String Name, String Bio, Bitmap Photo) {
         this.Name = Name;
+        this.Bio = Bio;
+        this.Photo = Photo;
     }
 
     public String getPhone() {
@@ -45,5 +49,21 @@ public class ProfileData {
 
     public void setName(String bio) {
         Name = Name;
+    }
+
+    public String getBio() {
+        return Bio;
+    }
+
+    public void setBio(String bio) {
+        Bio = bio;
+    }
+
+    public Bitmap getPhoto() {
+        return Photo;
+    }
+
+    public void setPhoto(Bitmap photo) {
+        Photo = photo;
     }
 }

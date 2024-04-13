@@ -52,10 +52,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(phone)) {
                     mPhone.setError("Phone number its required");
+//
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
                     mPass.setError("Personal password its required");
+                    FirebaseController.pullUserList();
                     return;
                 }
 
