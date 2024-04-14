@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -80,11 +81,13 @@ public class ImageController extends AppCompatActivity {
                     }) .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            Log.d("PULLIMAGE","FAILED " + filename);
                             bitmap = null;
                         }
                     });
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Log.d("PULLIMAGE","FAILED 2");
+           bitmap = null;
         }
 
         return bitmap;

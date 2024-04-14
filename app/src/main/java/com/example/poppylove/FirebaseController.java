@@ -17,7 +17,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -28,7 +30,8 @@ public class FirebaseController {
     private static FirebaseDatabase database;
     private static DatabaseReference myRef;
     private static int LoggedIn = 0;
-    static ProfileData profileData;
+    private static ProfileData profileData;
+    private static List<ProfileData> list;
 
     public static void initialise(Context context){
         if(!FB_Init){
@@ -96,8 +99,6 @@ public class FirebaseController {
 
     public static ProfileData pullUser(Context context, String phone){
 
-
-
         myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -120,14 +121,25 @@ public class FirebaseController {
         return profileData;
     }
 
-    public static void pullUserList(){
+    public static List<ProfileData> pullUserList(String exclude){
+        ImageController imageController = new ImageController(null);
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                list = new ArrayList<>();
                 
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    Log.d("DATASNAP", ds.getKey());
+
+                    if(exclude == ds.getKey()){
+                        continue;
+                    }
+
+                    ProfileData pf = new ProfileData(ds.getKey(),"");
+                    pf.setPhoto(imageController.downloadUserImage(ds.getKey()));
+
+                    list.add(pf);
                 }
             }
 
@@ -136,6 +148,8 @@ public class FirebaseController {
 
             }
         });
+
+        return list;
     }
 
     public static boolean Register(Context context,String phone, String password){
