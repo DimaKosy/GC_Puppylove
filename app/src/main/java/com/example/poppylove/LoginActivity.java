@@ -32,11 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        //Creates Firebase Reference
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://gc-puppylove-default-rtdb.europe-west1.firebasedatabase.app");
         DatabaseReference myRef = database.getReference("message");
-
-        myRef.setValue("Hello, login");
 
         login();
     }
@@ -48,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         BtmLogin = findViewById(R.id.btnID);
         mSignup = findViewById(R.id.signupID);
 
+
         BtmLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,14 +54,19 @@ public class LoginActivity extends AppCompatActivity {
                 String phone = mPhone.getText().toString().trim();
                 String password = mPass.getText().toString().trim();
 
+                boolean err = false;
+
+                //Checks if fields are empty
                 if (TextUtils.isEmpty(phone)) {
                     mPhone.setError("Phone number its required");
-//
-                    return;
+                    err = true;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    mPass.setError("Personal password its required");
-
+                    mPass.setError("Password its required");
+                    err = true;
+                }
+                if(err){
+                    return;
                 }
 
                 //Logins in if details match
@@ -77,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("PhoneID",phone);
 
-
+                //tries to login, if fails shows why
                 FirebaseController.login(phone, password, new Callback(){
                     @Override
                     public void onComplete(int result) {
@@ -96,13 +100,13 @@ public class LoginActivity extends AppCompatActivity {
                             case -1:
                                 //show error
 
-
+                                mPass.setError("password is incorrect");
 
 
                                 break;
                             case -2:
                                 //show error
-
+                                mPhone.setError("No account exists");
                                 break;
                             default:
                                 break;

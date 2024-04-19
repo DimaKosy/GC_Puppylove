@@ -47,7 +47,7 @@ public class UpdateUserActivity extends AppCompatActivity {
                 ImagePicker.with(UpdateUserActivity.this)
                         .crop()	    			//Crop image(Optional), Check Customization for more option
                         .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                        .maxResultSize(540, 720)	//Final image resolution will be less than 1080 x 1080(Optional)
                         .start();
             }
         });
@@ -68,20 +68,30 @@ public class UpdateUserActivity extends AppCompatActivity {
 
                 Name = nameInput.getText().toString();
                 Bio = bioInput.getText().toString();
+                boolean err = false;
 
                 if(Name.isEmpty()){
-                    return;
+                    err = true;
                 }
 
                 if(Bio.isEmpty()){
-                    return;
+                    err = true;
                 }
 
                 if(uri.equals(null)){
+                    err = true;
+                }
+
+                if(err == true){
                     return;
                 }
+
+                //creates the profile and uploads the image
                 FirebaseController.CreateProfile(phoneID, Name, Bio);
-                imageController.uploadProfileImage(phoneID,uri);
+
+                if(uri != null) {
+                    imageController.uploadProfileImage(phoneID, uri);
+                }
 
                 Bundle bundle = new Bundle();
                 bundle.putString("PhoneID",phoneID);

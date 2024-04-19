@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 //If no Error found
 
-                //register
+                //Attempts to Register
                 Log.d("CHANGE_ACT","Changing to UpdateUser");
                 if(FirebaseController.Register(getApplicationContext(),phone, pass)){
 
