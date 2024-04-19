@@ -6,7 +6,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
+
+import com.google.firebase.database.DataSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +33,37 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler();
 
         FirebaseController.initialise(getApplicationContext());
+
+
+        //TESTING
+        //<ProfileData>
+        final List<ProfileData>[] pf = new List[1];
+        pf[0] = new ArrayList<>();
+
+        Log.d("START_USERLIST","Start");
+        FirebaseController.pullUserList("0", new Callback(){
+            @Override
+            public void onComplete(int result) throws InterruptedException {
+
+            }
+
+            @Override
+            public void onUserListComplete(List<ProfileData> result) {
+                pf[0] = result;
+                MatchingAlgorithm.SortByAlgorithm(pf[0],
+                        new DogProfile()
+                                .setDogSize(2)
+                                .setDogActivity(2)
+                );
+            }
+
+            @Override
+            public void onDogListComplete(List<DogProfile> result) {
+
+            }
+
+
+        });
 
         handler.postDelayed(new Runnable() {
             @Override

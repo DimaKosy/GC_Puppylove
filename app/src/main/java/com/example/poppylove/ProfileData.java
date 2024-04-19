@@ -4,13 +4,16 @@ import android.graphics.Bitmap;
 
 public class ProfileData {
     //Private
-    String Phone;
-    String Password;
+    private String Phone;
+    private String Password;
 
     //Public
-    String Name;
-    String Bio;
-    Bitmap Photo;
+    private String Name;
+    private String Bio;
+    private Bitmap Photo;
+
+    //Matching Local
+    private float Score;
 
 
     public ProfileData() {
@@ -65,5 +68,13 @@ public class ProfileData {
 
     public void setPhoto(Bitmap photo) {
         Photo = photo;
+    }
+
+    public float getScore() {
+        return Score;
+    }
+
+    public void setScore(float score) {
+        Score = score;
     }
 }

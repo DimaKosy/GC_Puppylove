@@ -90,7 +90,7 @@ public class UpdateDogActivity extends AppCompatActivity {
                     return;
                 }
 
-                FirebaseController.CreateDogProfile(phoneID,1,Name,Bio);
+                FirebaseController.CreateDogProfile(phoneID,1,Name,Bio,null,null,null);
                 imageController.uploadDogImage(phoneID,1,uri);
                 Intent intent = new Intent(UpdateDogActivity.this,SwipeActivity.class);
                 startActivity(intent);

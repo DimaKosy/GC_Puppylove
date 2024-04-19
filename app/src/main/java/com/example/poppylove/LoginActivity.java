@@ -3,20 +3,19 @@ package com.example.poppylove;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
@@ -63,16 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (TextUtils.isEmpty(password)) {
                     mPass.setError("Personal password its required");
-//                    List<ProfileData> pf = FirebaseController.pullUserList("0");
-//
-//                    if(pf == null ){
-//                        return;
-//                    }
-//                    for(ProfileData p : pf){
-//                        Log.d("DATALIST",p.Phone);
-//                    }
-//
-//                    return;
+
                 }
 
                 //Logins in if details match
@@ -83,31 +73,57 @@ public class LoginActivity extends AppCompatActivity {
                  * -2 failure not registered
                  */
 
-                Intent intent;
+                final Intent[] intent = new Intent[1];
                 Bundle bundle = new Bundle();
                 bundle.putString("PhoneID",phone);
 
-                switch (FirebaseController.login(phone, password)){
-                    case 2:
-                        intent = new Intent(getApplicationContext(),UpdateUserActivity.class);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                    break;
-                    case 1:
-                        intent = new Intent(getApplicationContext(), SwipeActivity.class);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                    break;
-                    case -1:
-                        //show error
-                    break;
-                    case -2:
-                        //show error
-                    break;
-                    default:
-                    break;
 
-                }
+                FirebaseController.login(phone, password, new Callback(){
+                    @Override
+                    public void onComplete(int result) {
+                        switch (result){
+                            case 2:
+                                intent[0] = new Intent(getApplicationContext(),UpdateUserActivity.class);
+                                intent[0].putExtras(bundle);
+                                startActivity(intent[0]);
+                                break;
+                            case 1:
+                                intent[0] = new Intent(getApplicationContext(), SwipeActivity.class);
+
+                                intent[0].putExtras(bundle);
+                                startActivity(intent[0]);
+                                break;
+                            case -1:
+                                //show error
+
+
+
+
+                                break;
+                            case -2:
+                                //show error
+
+                                break;
+                            default:
+                                break;
+
+                        }
+                    }
+
+                    @Override
+                    public void onUserListComplete(List<ProfileData> result) {
+
+                    }
+
+                    @Override
+                    public void onDogListComplete(List<DogProfile> result) {
+
+                    }
+                });
+
+
+
+
 
             }
         });
