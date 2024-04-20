@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -94,14 +95,10 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent[0]);
                                 break;
                             case -1:
-                                //show error
-
-
-
-
+                                Toast.makeText(LoginActivity.this, "Incorrect password. Please try again.", Toast.LENGTH_LONG).show();
                                 break;
                             case -2:
-                                //show error
+                                Toast.makeText(LoginActivity.this, "Account not registered. Please sign up.", Toast.LENGTH_LONG).show();
 
                                 break;
                             default:
