@@ -8,16 +8,21 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.FrameLayout;
 
 import com.example.poppylove.databinding.ActivitySwipeBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SwipeActivity extends AppCompatActivity {
 
-
     ActivitySwipeBinding binding;
+    BottomNavigationView bottomNavigationView;
+    FrameLayout frameLayout;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +30,31 @@ public class SwipeActivity extends AppCompatActivity {
         binding = ActivitySwipeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.bottomNavigationView.setOnItemReselectedListener(item -> {
+        frameLayout = findViewById(R.id.frameLayout);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-            if (item.getItemId() == R.id.BottomHome) {
+        bottomNavigationView.setOnItemSelectedListener(item ->{
 
+            int itemId = item.getItemId();
 
-            } else if (item.getItemId() == R.id.BottomMess) {
+            if (itemId == R.id.BottomHome) {
+                loadFragment( new HomeFragment());
 
-                replaceFragment(new MessageFragment());
-
-
-            } else if (item.getItemId() == R.id.BottomUser) {
-                replaceFragment(new UserFragment());
+            } else if (itemId == R.id.BottomUser) {
+                loadFragment(new UserFragment());
 
             }
+
+            return false;
+
         });
     }
-
-
-
-
-    private void replaceFragment(Fragment fragment) {
+    private void loadFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
+
     }
 
 }
