@@ -3,11 +3,11 @@ package com.example.poppylove;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +36,8 @@ public class UpdateDogActivity extends AppCompatActivity {
     Spinner spinner;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +50,12 @@ public class UpdateDogActivity extends AppCompatActivity {
 
         nameInput = findViewById(R.id.DogNameInput);
         bioInput = findViewById(R.id.DogBIOinput);
-
         imageView = findViewById(R.id.DogprofileID);
         button = findViewById(R.id.DogFloatButtonID);
         DogsubmitButton = findViewById(R.id.SubmitButtonDog);
-        spinner = findViewById(R.id.SpinnerID);  // Ensure ID matches your Spinner ID in XML.
+        spinner = findViewById(R.id.SpinnerID);
 
-        String[] Dogs = {"1", "2", "3"};
+        String[] Dogs = {"Select", "Dog1", "Dog2","Dog3"};
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, Dogs);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -70,6 +71,7 @@ public class UpdateDogActivity extends AppCompatActivity {
                         .start();
             }
         });
+
 
         DogsubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
