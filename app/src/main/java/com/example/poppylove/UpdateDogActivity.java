@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -94,8 +95,21 @@ public class UpdateDogActivity extends AppCompatActivity {
 
                 FirebaseController.CreateDogProfile(phoneID,1,Name,Bio,null,null,null);
                 imageController.uploadDogImage(phoneID,1,uri);
-                Intent intent = new Intent(UpdateDogActivity.this,SwipeActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(UpdateDogActivity.this,SwipeActivity.class);
+//                startActivity(intent);
+
+                //end Activity
+
+                Bundle bundle = new Bundle();
+                bundle.putString("PhoneID",phoneID);
+                bundle.putString("URI",uri.toString());
+
+                Intent result = new Intent();
+
+                result.putExtras(bundle);
+
+                setResult(Activity.RESULT_OK, result);
+                finish();
             }
         });
     }

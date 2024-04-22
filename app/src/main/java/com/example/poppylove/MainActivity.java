@@ -14,7 +14,10 @@ import com.google.firebase.database.DataSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class MainActivity extends AppCompatActivity {
+
 
     Handler handler;
     Runnable runnable;
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onMatchSortComplete(List<ProfileData> result) {
                                 //On matchsort complete
+                                Log.d("COMP_MATCH","Matching sorted");
                             }
                         }
                 );

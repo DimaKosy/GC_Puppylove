@@ -18,9 +18,10 @@ public class MatchingAlgorithm {
     private static MatchCallback matchCallback;
 
 
-    public static void SortByAlgorithm(List<ProfileData> userList, DogProfile filter, MatchCallback matchCallback){
+    public static void SortByAlgorithm(List<ProfileData> userList, DogProfile filter, MatchCallback callback){
 
         Filter = filter;
+        matchCallback = callback;
 
         ScoreProfile(userList);
 

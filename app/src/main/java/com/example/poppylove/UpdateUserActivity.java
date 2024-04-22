@@ -17,6 +17,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class UpdateUserActivity extends AppCompatActivity {
 
+    private int MAX_DOGS = 3;
+
     EditText nameInput;
     EditText bioInput;
     String Name;
@@ -25,6 +27,7 @@ public class UpdateUserActivity extends AppCompatActivity {
 
     ImageController imageController;
     ImageView imageView;
+    ImageView dogPic[];
     Uri uri;
 
     FloatingActionButton button;
@@ -39,8 +42,13 @@ public class UpdateUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_user);
 
 
+
         button = findViewById(R.id.floatingActionButton);
         imageView = findViewById(R.id.profileID);
+
+        dogPic = new ImageView[MAX_DOGS];
+        dogPic[0] = findViewById(R.id.dogPic);
+
         imageController = new ImageController(this);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -69,8 +77,13 @@ public class UpdateUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(UpdateUserActivity.this,UpdateDogActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("PhoneID",phoneID);
 
+                Intent intent = new Intent(UpdateUserActivity.this,UpdateDogActivity.class);
+                intent.putExtras(bundle);
+
+                startActivityForResult(intent, 2001);
             }
         }));{
 
@@ -91,7 +104,7 @@ public class UpdateUserActivity extends AppCompatActivity {
                     err = true;
                 }
 
-                if(uri.equals(null)){
+                if(uri == null){
                     err = true;
                 }
 
@@ -109,7 +122,7 @@ public class UpdateUserActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("PhoneID",phoneID);
 
-                Intent intent = new Intent(UpdateUserActivity.this,UpdateDogActivity.class);
+                Intent intent = new Intent(UpdateUserActivity.this,SwipeActivity.class);
                 intent.putExtras(bundle);
 
                 startActivity(intent);
@@ -121,7 +134,21 @@ public class UpdateUserActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        uri = data.getData();
-        imageView.setImageURI(uri);
+
+        Log.d("RESULT", requestCode +":"+ resultCode);
+
+        switch(requestCode){
+            case 2404:
+                uri = data.getData();
+                imageView.setImageURI(uri);
+            break;
+            case 2001:
+                assert data != null;
+                uri = Uri.parse(data.getStringExtra("URI"));
+                dogPic[0].setImageURI(uri);
+            break;
+
+        }
+
     }
 }
