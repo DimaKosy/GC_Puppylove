@@ -29,6 +29,8 @@ public class UpdateUserActivity extends AppCompatActivity {
 
     FloatingActionButton button;
 
+    Button LinkDogpage;
+
 
 
     @Override
@@ -61,7 +63,18 @@ public class UpdateUserActivity extends AppCompatActivity {
         nameInput = findViewById(R.id.NameInput);
         bioInput = findViewById(R.id.bioInput);
         submitButton = findViewById(R.id.SubmitButton);
+        LinkDogpage = findViewById(R.id.EditDogButtonID);
 
+        LinkDogpage.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(UpdateUserActivity.this,UpdateDogActivity.class);
+
+            }
+        }));{
+
+        }
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
