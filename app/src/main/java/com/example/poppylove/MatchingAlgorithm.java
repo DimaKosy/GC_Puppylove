@@ -15,24 +15,24 @@ public class MatchingAlgorithm {
     private static float wActivity = -2;
 
     private static DogProfile Filter;
+    private static MatchCallback matchCallback;
 
-    public static void SortByAlgorithm(List<ProfileData> userList, DogProfile filter){
+
+    public static void SortByAlgorithm(List<ProfileData> userList, DogProfile filter, MatchCallback matchCallback){
 
         Filter = filter;
 
         ScoreProfile(userList);
 
-        Log.d("PRE_SORTER",userList.toString());
-
-        Collections.sort(userList, new ProfileComparator());
-
-        Log.d("POST_SORTER",userList.toString());
         return;
     }
 
     private static void ScoreProfile(List<ProfileData> userList){
         final float[] score = new float[1];
         score[0] = 0;
+
+        final int[] userCount = new int[1];
+        userCount[0] = userList.size();
 
         for(ProfileData pd : userList) {
 
@@ -49,15 +49,34 @@ public class MatchingAlgorithm {
 
                 @Override
                 public void onDogListComplete(List<DogProfile> result) {
+                    Log.d("PRE_SORTER",""+pd.getScore());
+
+                    userCount[0]--;
+
                     for (DogProfile dp : result) {
                         if(dp == null){
                             continue;
                         }
                         score[0] += ScoreDog(dp);
                     }
+
+
                     pd.setScore(score[0]);
+
+
+
+                    if(userCount[0] <= 0){
+                        Collections.sort(userList, new ProfileComparator());
+
+                        matchCallback.onMatchSortComplete(userList);
+                        for(ProfileData pf : userList){
+
+                            Log.d("SORTER","" + pf.getScore());
+                        }
+                    }
                 }
             });
+
         }
     }
 
@@ -65,8 +84,8 @@ public class MatchingAlgorithm {
         float score;
         score = 0;
 
-        score += wSize * Math.abs(dp.getDogSize() - Filter.getDogSize());
-        score += wActivity * Math.abs(dp.getDogActivity() - Filter.getDogActivity());
+        score += wSize * (Math.abs(dp.getDogSize() - Filter.getDogSize()));
+        score += wActivity * (Math.abs(dp.getDogActivity() - Filter.getDogActivity()));
 
         return score;
     }

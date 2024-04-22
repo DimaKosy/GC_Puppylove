@@ -53,8 +53,16 @@ public class MainActivity extends AppCompatActivity {
                 MatchingAlgorithm.SortByAlgorithm(pf[0],
                         new DogProfile()
                                 .setDogSize(2)
-                                .setDogActivity(2)
+                                .setDogActivity(2),
+                        new MatchCallback() {
+                            @Override
+                            public void onMatchSortComplete(List<ProfileData> result) {
+                                //On matchsort complete
+                            }
+                        }
                 );
+
+                Log.d("SORTED", pf[0].toString());
             }
 
             @Override
