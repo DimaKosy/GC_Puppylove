@@ -164,7 +164,7 @@
         app:layout_constraintVertical_bias="0.854" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dogName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -176,7 +176,7 @@
         app:layout_constraintVertical_bias="0.834" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/dogBreed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

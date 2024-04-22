@@ -53,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onUserListComplete(List<ProfileData> result) {
                 pf[0] = result;
-                MatchingAlgorithm.SortByAlgorithm(pf[0],
+                MatchingAlgorithm matchingAlgorithm = new MatchingAlgorithm();
+
+                        matchingAlgorithm.SortByAlgorithm(pf[0],
                         new DogProfile()
                                 .setDogSize(2)
                                 .setDogActivity(2),

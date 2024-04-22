@@ -56,7 +56,7 @@ public class UpdateDogActivity extends AppCompatActivity {
         DogsubmitButton = findViewById(R.id.SubmitButtonDog);
         spinner = findViewById(R.id.SpinnerID);
 
-        String[] Dogs = {"Select", "Dog1", "Dog2","Dog3"};
+        String[] Dogs = {"German Shepard", "Husky", "Corgi","Terrier"};
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, Dogs);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -103,6 +103,9 @@ public class UpdateDogActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("PhoneID",phoneID);
                 bundle.putString("URI",uri.toString());
+                bundle.putString("DOG_NAME", Name);
+                bundle.putString("DOG_BREED", spinner.getSelectedItem().toString());
+
 
                 Intent result = new Intent();
 

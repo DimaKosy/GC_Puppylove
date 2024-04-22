@@ -219,12 +219,13 @@ public class FirebaseController {
     public static void pullDogs(String phone, Callback callback){
 
 //        ImageController imageController = new ImageController(context);
-        dogProfileList = new ArrayList<>();
+
 
         myRef.child(phone).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
+                    dogProfileList = new ArrayList<>();
                     for(int index = 1; index <= MAX_DOGS; index++ ) {
                         Log.d("PULLDOG","Dog_" + index);
                         dogProfile = dataSnapshot.child("Dog_" + index).getValue(DogProfile.class);

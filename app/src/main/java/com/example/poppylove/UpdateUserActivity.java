@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,7 +28,10 @@ public class UpdateUserActivity extends AppCompatActivity {
 
     ImageController imageController;
     ImageView imageView;
+
     ImageView dogPic[];
+    TextView dogName[];
+    TextView dogBreed[];
     Uri uri;
 
     FloatingActionButton button;
@@ -47,7 +51,12 @@ public class UpdateUserActivity extends AppCompatActivity {
         imageView = findViewById(R.id.profileID);
 
         dogPic = new ImageView[MAX_DOGS];
+        dogName = new TextView[MAX_DOGS];
+        dogBreed = new TextView[MAX_DOGS];
+
         dogPic[0] = findViewById(R.id.dogPic);
+        dogName[0] = findViewById(R.id.dogName);
+        dogBreed[0] = findViewById(R.id.dogBreed);
 
         imageController = new ImageController(this);
 
@@ -145,6 +154,9 @@ public class UpdateUserActivity extends AppCompatActivity {
             case 2001:
                 assert data != null;
                 uri = Uri.parse(data.getStringExtra("URI"));
+
+                dogName[0].setText(data.getStringExtra("DOG_NAME"));
+                dogBreed[0].setText(data.getStringExtra("DOG_BREED"));
                 dogPic[0].setImageURI(uri);
             break;
 

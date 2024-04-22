@@ -11,14 +11,14 @@ import java.util.List;
 
 public class MatchingAlgorithm {
 
-    private static float wSize = -2;
-    private static float wActivity = -2;
+    private float wSize = -2;
+    private float wActivity = -2;
 
-    private static DogProfile Filter;
-    private static MatchCallback matchCallback;
+    private DogProfile Filter;
+    private MatchCallback matchCallback;
 
 
-    public static void SortByAlgorithm(List<ProfileData> userList, DogProfile filter, MatchCallback callback){
+    public void SortByAlgorithm(List<ProfileData> userList, DogProfile filter, MatchCallback callback){
 
         Filter = filter;
         matchCallback = callback;
@@ -28,14 +28,13 @@ public class MatchingAlgorithm {
         return;
     }
 
-    private static void ScoreProfile(List<ProfileData> userList){
-        final float[] score = new float[1];
-        score[0] = 0;
+    private void ScoreProfile(List<ProfileData> userList){
 
         final int[] userCount = new int[1];
         userCount[0] = userList.size();
 
         for(ProfileData pd : userList) {
+            Log.d("USER_OPEN",""+pd.getPhone());
 
             FirebaseController.pullDogs(pd.getPhone(),new Callback(){
                 @Override
@@ -50,7 +49,9 @@ public class MatchingAlgorithm {
 
                 @Override
                 public void onDogListComplete(List<DogProfile> result) {
-                    Log.d("PRE_SORTER",""+pd.getScore());
+                    Log.d("PRE_SORTER",""+result.size());
+                    int score;
+                    score = 0;
 
                     userCount[0]--;
 
@@ -58,12 +59,11 @@ public class MatchingAlgorithm {
                         if(dp == null){
                             continue;
                         }
-                        score[0] += ScoreDog(dp);
+                        score += ScoreDog(dp);
                     }
 
 
-                    pd.setScore(score[0]);
-
+                    pd.setScore(score);
 
 
                     if(userCount[0] <= 0){
@@ -72,7 +72,7 @@ public class MatchingAlgorithm {
                         matchCallback.onMatchSortComplete(userList);
                         for(ProfileData pf : userList){
 
-                            Log.d("SORTER","" + pf.getScore());
+                            Log.d("SORTER",pf.getPhone() + " : " + pf.getScore());
                         }
                     }
                 }
@@ -81,18 +81,21 @@ public class MatchingAlgorithm {
         }
     }
 
-    private static float ScoreDog(DogProfile dp){
+    private float ScoreDog(DogProfile dp){
         float score;
         score = 0;
 
+        Log.d("TRAITS", "{" + dp.getDogSize()+" : " +dp.getDogActivity()+"},{" + Filter.getDogSize()+" : " +Filter.getDogActivity()+"}");
         score += wSize * (Math.abs(dp.getDogSize() - Filter.getDogSize()));
         score += wActivity * (Math.abs(dp.getDogActivity() - Filter.getDogActivity()));
+
+        Log.d("TRAITS_SCORE", ""+score);
 
         return score;
     }
 
     //referance: "https://www.freecodecamp.org/news/how-to-sort-a-list-in-java/#:~:text=One%20of%20the%20most%20common,in%20ascending%20order%20by%20default.&text=The%20above%20code%20creates%20a,sorted%20list%20to%20the%20console."
-    private static class ProfileComparator implements java.util.Comparator<ProfileData> {
+    private class ProfileComparator implements java.util.Comparator<ProfileData> {
         @Override
         public int compare(ProfileData a, ProfileData b) {
             return Math.round(a.getScore() - b.getScore());
