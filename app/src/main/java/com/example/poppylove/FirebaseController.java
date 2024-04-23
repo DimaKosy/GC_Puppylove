@@ -35,6 +35,7 @@ public class FirebaseController {
     private static List<DogProfile> dogProfileList;
     private static DogProfile dogProfile;
     private static List<ProfileData> list;
+    private static List<String> Liked;
 
     public static void initialise(Context context){
         if(!FB_Init){
@@ -141,7 +142,7 @@ public class FirebaseController {
         return profileData;
     }
 
-    public static void pullUserList(String exclude, Callback userListCallback){
+    public static void pullUserList(List<String> exclude, Callback userListCallback){
 //        ImageController imageController = new ImageController(null);
 
         list = new ArrayList<>();
@@ -153,8 +154,14 @@ public class FirebaseController {
 
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-
-                        if (ds.getKey().equals(exclude)) {
+                        boolean breaker = false;
+                        for(String ex : exclude){
+                            if (ds.getKey().equals(ex)) {
+                                breaker = true;
+                                break;
+                            }
+                        }
+                        if (breaker){
                             continue;
                         }
 
@@ -173,8 +180,163 @@ public class FirebaseController {
                 Log.d("FAILED","CANCELLED");
             }
         });
+    }
+
+    public static List<String> pullLiked(String PhoneID, MatchCallback callback){
+
+        Log.d("ENTER_LIKE","pulling likes");
+
+        myRef.child(PhoneID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("ENTER_LIKE","pulling datasnap");
+                if(dataSnapshot.exists()){
+                    Liked = new ArrayList<>();
+                    List<Object> tempList = (List)dataSnapshot.child("Liked").getValue();
+
+                    if(tempList == null){
+                        Log.d("ENTER_LIKE", "datasnap null");
+                        callback.onLinkedComplete(Liked);
+                        return;
+                    }
 
 
+                    for(Object o : tempList){
+                        Log.d("ENTER_LIKE",""+o.toString());
+                        Liked.add(o.toString());
+                    }
+
+
+                    callback.onLinkedComplete(Liked);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("ENTER_LIKE","cancelled datasnap");
+                Liked = null;
+            }
+        });
+
+        return Liked;
+    }
+
+    public static void Like(String PhoneID, String liked){
+
+        pullLiked(PhoneID, new MatchCallback() {
+            @Override
+            public void onMatchSortComplete(List<ProfileData> result) {
+
+            }
+
+            @Override
+            public void onLinkedComplete(List<String> result) {
+
+                Log.d("ENTER_LIKE","entered callback");
+
+                for(String res : result){
+                    Log.d("RES", res.toString());
+                    if(res.toString().equals(liked)){
+                        Log.d("FOUND","F");
+                        return;
+                    }
+                }
+
+                Liked.add(liked);
+
+                Map<String, Object> updateData = new HashMap<>();
+
+                Log.d("Attempt_Like","" + result.toString());
+                updateData.put("/Liked", result);
+
+                DatabaseReference profileRef = myRef.child(PhoneID);
+                profileRef.updateChildren(updateData)
+                        .addOnFailureListener(e ->
+                                // Error
+                                System.out.println("Error updating profile: " + e.getMessage())
+                        );
+                Log.d("LIKE","like comp");
+            }
+        });
+
+
+    }
+
+    public static List<String> pullDisliked(String PhoneID, MatchCallback callback){
+
+        Log.d("ENTER_LIKE","pulling dislikes");
+
+        myRef.child(PhoneID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("ENTER_LIKE","pulling datasnap");
+                if(dataSnapshot.exists()){
+                    Liked = new ArrayList<>();
+                    List<Object> tempList = (List)dataSnapshot.child("Disliked").getValue();
+
+                    if(tempList == null){
+                        Log.d("ENTER_LIKE", "datasnap null");
+                        callback.onLinkedComplete(Liked);
+                        return;
+                    }
+
+                    for(Object o : tempList){
+                        Log.d("ENTER_LIKE",""+o.toString());
+                        Liked.add(o.toString());
+                    }
+
+
+                    callback.onLinkedComplete(Liked);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("ENTER_LIKE","cancelled datasnap");
+                Liked = null;
+            }
+        });
+
+        return Liked;
+    }
+
+    public static void Dislike(String PhoneID, String disliked){
+
+        pullDisliked(PhoneID, new MatchCallback() {
+            @Override
+            public void onMatchSortComplete(List<ProfileData> result) {
+
+            }
+
+            @Override
+            public void onLinkedComplete(List<String> result) {
+                Map<String, Object> updateData = new HashMap<>();
+
+                for(String res : result){
+                    Log.d("RES", res.toString());
+                    if(res.toString().equals(disliked)){
+                        Log.d("FOUND","F");
+                        return;
+                    }
+                }
+
+                result.add(disliked);
+
+
+                updateData.put("/Disliked", result);
+
+                DatabaseReference profileRef = myRef.child(PhoneID);
+                profileRef.updateChildren(updateData)
+                        .addOnFailureListener(e ->
+                                // Error
+                                System.out.println("Error updating profile: " + e.getMessage())
+                        );
+            }
+        });
+    }
+
+    public static List<String> getMatches(String user){
+        return null;
     }
 
     public static boolean Register(Context context,String phone, String password){

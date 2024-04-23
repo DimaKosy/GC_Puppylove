@@ -103,6 +103,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 mPass.setError("password is incorrect");
 
+                                FirebaseController.Like(phone,"test1");
+
 
                                 break;
                             case -2:

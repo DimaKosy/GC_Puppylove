@@ -38,47 +38,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseController.initialise(getApplicationContext());
 
 
-        //TESTING
-        //<ProfileData>
-        final List<ProfileData>[] pf = new List[1];
-        pf[0] = new ArrayList<>();
-
-        Log.d("START_USERLIST","Start");
-        FirebaseController.pullUserList("0", new Callback(){
-            @Override
-            public void onComplete(int result) throws InterruptedException {
-
-            }
-
-            @Override
-            public void onUserListComplete(List<ProfileData> result) {
-                pf[0] = result;
-                MatchingAlgorithm matchingAlgorithm = new MatchingAlgorithm();
-
-                        matchingAlgorithm.SortByAlgorithm(pf[0],
-                        new DogProfile()
-                                .setDogSize(2)
-                                .setDogActivity(2),
-                        new MatchCallback() {
-                            @Override
-                            public void onMatchSortComplete(List<ProfileData> result) {
-                                //On matchsort complete
-                                Log.d("COMP_MATCH","Matching sorted");
-                            }
-                        }
-                );
-
-                Log.d("SORTED", pf[0].toString());
-            }
-
-            @Override
-            public void onDogListComplete(List<DogProfile> result) {
-
-            }
-
-
-        });
-
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

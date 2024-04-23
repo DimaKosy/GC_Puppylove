@@ -71,7 +71,6 @@ public class MatchingAlgorithm {
 
                         matchCallback.onMatchSortComplete(userList);
                         for(ProfileData pf : userList){
-
                             Log.d("SORTER",pf.getPhone() + " : " + pf.getScore());
                         }
                     }
