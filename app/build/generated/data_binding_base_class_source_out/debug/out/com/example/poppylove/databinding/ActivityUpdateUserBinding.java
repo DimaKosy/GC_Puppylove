@@ -27,10 +27,7 @@ public final class ActivityUpdateUserBinding implements ViewBinding {
   public final TextView Bio;
 
   @NonNull
-  public final Button Dogbutton;
-
-  @NonNull
-  public final Button Dogbutton2;
+  public final Button EditDogButtonID;
 
   @NonNull
   public final EditText NameInput;
@@ -72,7 +69,7 @@ public final class ActivityUpdateUserBinding implements ViewBinding {
   public final TextView profileLast;
 
   private ActivityUpdateUserBinding(@NonNull ConstraintLayout rootView, @NonNull TextView Bio,
-      @NonNull Button Dogbutton, @NonNull Button Dogbutton2, @NonNull EditText NameInput,
+      @NonNull Button EditDogButtonID, @NonNull EditText NameInput,
       @NonNull TextView ProfileDetailID, @NonNull TextView ProfileFirst,
       @NonNull Button SubmitButton, @NonNull EditText bioInput, @NonNull TextView dogBreed,
       @NonNull TextView dogName, @NonNull ImageView dogPic,
@@ -80,8 +77,7 @@ public final class ActivityUpdateUserBinding implements ViewBinding {
       @NonNull EditText nameInput2, @NonNull ImageView profileID, @NonNull TextView profileLast) {
     this.rootView = rootView;
     this.Bio = Bio;
-    this.Dogbutton = Dogbutton;
-    this.Dogbutton2 = Dogbutton2;
+    this.EditDogButtonID = EditDogButtonID;
     this.NameInput = NameInput;
     this.ProfileDetailID = ProfileDetailID;
     this.ProfileFirst = ProfileFirst;
@@ -130,15 +126,9 @@ public final class ActivityUpdateUserBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.Dogbutton;
-      Button Dogbutton = ViewBindings.findChildViewById(rootView, id);
-      if (Dogbutton == null) {
-        break missingId;
-      }
-
-      id = R.id.Dogbutton2;
-      Button Dogbutton2 = ViewBindings.findChildViewById(rootView, id);
-      if (Dogbutton2 == null) {
+      id = R.id.EditDogButtonID;
+      Button EditDogButtonID = ViewBindings.findChildViewById(rootView, id);
+      if (EditDogButtonID == null) {
         break missingId;
       }
 
@@ -220,7 +210,7 @@ public final class ActivityUpdateUserBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityUpdateUserBinding((ConstraintLayout) rootView, Bio, Dogbutton, Dogbutton2,
+      return new ActivityUpdateUserBinding((ConstraintLayout) rootView, Bio, EditDogButtonID,
           NameInput, ProfileDetailID, ProfileFirst, SubmitButton, bioInput, dogBreed, dogName,
           dogPic, floatingActionButton, imageView, nameInput2, profileID, profileLast);
     }

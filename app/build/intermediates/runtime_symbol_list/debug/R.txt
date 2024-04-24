@@ -3231,9 +3231,8 @@ int id DogFloatButtonID 0x7f08000b
 int id DogName 0x7f08000c
 int id DogNameInput 0x7f08000d
 int id DogProfileDetailID 0x7f08000e
-int id Dogbutton 0x7f08025a
-int id Dogbutton2 0x7f08025b
 int id DogprofileID 0x7f08000f
+int id EditDogButtonID 0x7f080010
 int id EditUserImageID 0x7f080011
 int id EditUserNameId 0x7f080012
 int id FUNCTION 0x7f080013

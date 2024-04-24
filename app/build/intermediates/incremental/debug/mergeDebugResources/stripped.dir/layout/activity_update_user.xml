@@ -7,18 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".UpdateUserActivity">
 
-    <Button
-        android:id="@+id/Dogbutton2"
-        android:layout_width="80dp"
-        android:layout_height="44dp"
-        android:text="Female"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
-
     <EditText
         android:id="@+id/nameInput2"
         android:layout_width="299dp"
@@ -164,10 +152,10 @@
         app:layout_constraintVertical_bias="0.598" />
 
     <Button
-        android:id="@+id/Dogbutton"
-        android:layout_width="80dp"
-        android:layout_height="43dp"
-        android:text="Male"
+        android:id="@+id/EditDogButtonID"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -3232,9 +3232,8 @@ id DogFloatButtonID
 id DogName
 id DogNameInput
 id DogProfileDetailID
-id Dogbutton
-id Dogbutton2
 id DogprofileID
+id EditDogButtonID
 id EditUserImageID
 id EditUserNameId
 id FUNCTION
