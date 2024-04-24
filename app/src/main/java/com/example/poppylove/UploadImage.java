@@ -53,6 +53,7 @@ public class UploadImage extends AppCompatActivity {
         binding.selectImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 selectImg();
             }
         });
@@ -86,7 +87,7 @@ public class UploadImage extends AppCompatActivity {
     }
 
     //used to launch the pick image selector
-    private void selectImg() {
+    public void selectImg() {
         Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
         resultLauncher.launch(intent);
     }
@@ -94,7 +95,7 @@ public class UploadImage extends AppCompatActivity {
     //pass an image uri it will be given an automatic heading using the current
     //date and time and attempt to upload the selected image
     //gives a toast when successful
-    private void uploadImage(Uri imageUri) {
+    public void uploadImage(Uri imageUri) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CHINA);
         Date now = new Date();
         String fileName = formatter.format(now);
@@ -118,7 +119,7 @@ public class UploadImage extends AppCompatActivity {
 
     //Once an image is selected this function calls the uploadImage to send
     //it to the firebase storage
-    private void registerResult() {
+    public void registerResult() {
         resultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
