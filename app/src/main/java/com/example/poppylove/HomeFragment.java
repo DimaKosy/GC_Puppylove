@@ -162,7 +162,7 @@ public class HomeFragment extends Fragment {
                 if(pf_list[0].size() == 0){
                     return;
                 }
-                
+
                 ImageController imageController = new ImageController(getActivity().getApplicationContext());
 
                 Bitmap bitmap = imageController.downloadUserImage(pf_list[0].get(index).getPhone());
