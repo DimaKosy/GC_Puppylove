@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Dark_grey">#FFD3D3D3</color>
+    <color name="black">#FF000000</color>
+    <color name="pink">#f7cecd</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Poppy love</string>
+    <string name="gcm_defaultSenderId" translatable="false">230594500700</string>
+    <string name="google_api_key" translatable="false">AIzaSyAHF0-Ao16eMSUSbD9Z9qS8weqPMppIM28</string>
+    <string name="google_app_id" translatable="false">1:230594500700:android:cae1ec9efcc07716ee2e99</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAHF0-Ao16eMSUSbD9Z9qS8weqPMppIM28</string>
+    <string name="google_storage_bucket" translatable="false">gc-puppylove.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="project_id" translatable="false">gc-puppylove</string>
+    <style name="Base.Theme.PoppyLove" parent="Theme.AppCompat.Light.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.PoppyLove" parent="Base.Theme.PoppyLove"/>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">230594500700</string>
+    <string name="google_api_key" translatable="false">AIzaSyAHF0-Ao16eMSUSbD9Z9qS8weqPMppIM28</string>
+    <string name="google_app_id" translatable="false">1:230594500700:android:cae1ec9efcc07716ee2e99</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAHF0-Ao16eMSUSbD9Z9qS8weqPMppIM28</string>
+    <string name="google_storage_bucket" translatable="false">gc-puppylove.appspot.com</string>
+    <string name="project_id" translatable="false">gc-puppylove</string>
+</resources>

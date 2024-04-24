@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\fragment_user.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\fragment_user.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-mergeDebugResources-36:/layout/activity_login.xml",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_upload_image.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_upload_image.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_update_user.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_update_user.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-mergeDebugResources-36:/layout/activity_update_dog.xml",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_update_dog.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-mergeDebugResources-36:/layout/activity_register.xml",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-mergeDebugResources-36:/layout/activity_update_user.xml",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_update_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_update_dog.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_update_dog.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_match.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_match.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\profile_card.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\profile_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_swipe.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_swipe.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-mergeDebugResources-36:\\layout\\fragment_message.xml",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\fragment_message.xml"
+    }
+]

@@ -1,0 +1,214 @@
+[
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_bottonwhite.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\bottonwhite.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_update_dog.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_update_dog.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-anydpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_baseline_home_24.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\baseline_home_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_fragment_user.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\fragment_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_update_user.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_update_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_swipe.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_swipe.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_button.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\button.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_baseline_message_24.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\baseline_message_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-anydpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_custom_input.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\custom_input.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_icons8_facebook.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\icons8_facebook.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_baseline_person_24.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\baseline_person_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.poppylove.app-merged_res-37:/layout_activity_update_dog.xml.flat",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_update_dog.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_circle.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_profile_card.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\profile_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_white_background.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\white_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_puppylover.JPG.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\puppylover.JPG"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_fragment_message.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\fragment_message.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-merged_res-37:/layout_activity_login.xml.flat",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_match.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_match.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_upload_image.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_upload_image.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-merged_res-37:/layout_activity_update_user.xml.flat",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_update_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_baseline_person_pin_24.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\baseline_person_pin_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_signup.png.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\signup.png"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_notification_12_svgrepo_com.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\notification_12_svgrepo_com.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_topbackground.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\topbackground.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_apple.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\apple.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_icons8_chrome.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\icons8_chrome.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_baseline_photo_camera_24.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\baseline_photo_camera_24.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-merged_res-37:/layout_activity_register.xml.flat",
+        "source": "com.example.poppylove.app-main-39:/layout/activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_settings_svgrepo_com.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\settings_svgrepo_com.xml"
+    },
+    {
+        "merged": "com.example.poppylove.app-merged_res-37:/drawable_button.xml.flat",
+        "source": "com.example.poppylove.app-main-39:/drawable/button.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\menu_menu_botom.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\menu\\menu_botom.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-merged_res-37:\\drawable_dog_head_profile_svgrepo_com.xml.flat",
+        "source": "C:\\Users\\dmytr\\.gradle\\daemon\\8.0\\com.example.poppylove.app-main-39:\\drawable\\dog_head_profile_svgrepo_com.xml"
+    }
+]

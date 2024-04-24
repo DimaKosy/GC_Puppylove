@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ProfileImage"
+            android:layout_width="270dp"
+            android:layout_height="360dp"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/Dislike"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/dog_head_profile_svgrepo_com"
+            tools:srcCompat="@drawable/dog_head_profile_svgrepo_com" />
+
+        <Button
+            android:id="@+id/Dislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="Dislike"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/Like"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/Like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Like"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Dislike"
+            app:layout_constraintTop_toTopOf="@+id/Dislike" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
