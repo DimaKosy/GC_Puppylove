@@ -43,6 +43,10 @@ dependencies {
     implementation("com.google.firebase:firebase-database:19.2.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
 
+    implementation("com.github.yuyakaido:CardStackView:v2.3.4")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
     //dependancy for products
 //    implementation("com.google.firebase:firebase-analytics")
 }
